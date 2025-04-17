@@ -2,10 +2,10 @@ import pandas as pd
 
 def avg():
 
-    df = pd.read_csv('./ai1_result.csv')
-    df1 = pd.read_csv('./ai2_result.csv')
-    df2 = pd.read_csv('./ai3_result.csv')
-    df3 = pd.read_csv('./ai4_result.csv')
+    df = pd.read_csv('./ai1_result.csv').drop_duplicates(subset='Name')
+    df1 = pd.read_csv('./ai2_result.csv').drop_duplicates(subset='Name')
+    df2 = pd.read_csv('./ai3_result.csv').drop_duplicates(subset='Name')
+    df3 = pd.read_csv('./ai4_result.csv').drop_duplicates(subset='Name')
 
     # 'Name' 열 기준으로 병합하면서 0, 1 열 값 더하기
     merged = pd.merge(df, df1, on='Name', suffixes=('_a', '_b'))
